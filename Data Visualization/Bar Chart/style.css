@@ -1,0 +1,48 @@
+body {
+  background-color: rgb(193, 238, 240);
+  padding: 0;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#barplot {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  width: 960px;
+  height: 600px;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.671);
+}
+#title {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.bar {
+  fill: rgb(75, 129, 211);
+  stroke: white;
+  stroke-width: 0.15px;
+}
+.bar:hover {
+  fill: white;
+}
+
+.label {
+  font-weight: 100;
+}
+
+div#tooltip {
+  position: absolute;
+  text-align: center;
+
+  padding: 5px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
