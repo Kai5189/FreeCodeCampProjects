@@ -1,0 +1,28 @@
+body {
+    background-color: #000066;
+  
+  }
+  
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  
+  .container {
+  
+     padding: 0.3rem 1rem;
+     margin: 1rem auto;
+     width: 20rem;
+     border-radius: 5%;
+     text-align: center;
+  
+  }
+  
+  #check-container { background-color:
+     white;
+  }
+  #explanation-container {
+    background-color: #006600;
+    color: white;
+  
+  }

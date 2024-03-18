@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000033;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  div {
+    background-color: #ffffff;
+  
+  }
+  
+  #field {
+    padding: 2rem;
+  }
+  
+  #field p {
+    text-align: center;
+    font-size: 14pt;
+  }
+  
+  #field .search {
+    display: flex;
+    justify-content: center;
+    
+    height: 2rem;
+    width: auto;
+  }
+  
+  /*button {
+    margin: 0 1rem;
+    border-radius: 20%;
+    background-color: #9933ff;
+    color: white;
+  }*/
+  
+  tr {
+    display: none;
+  }
+  
+  table {
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 2vh 8vw;
+  }
+  
+  .toggle {
+    visibility: hidden;
+  }
+  
+  #my-poke {
+    display: flex;
+            justify-content: center;
+  }
