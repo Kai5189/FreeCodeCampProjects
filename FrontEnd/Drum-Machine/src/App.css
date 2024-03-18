@@ -1,0 +1,25 @@
+.container {
+  text-align: center;
+  margin: 20px;
+}
+
+.drum-set {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 50px;
+  width: min-content;
+  margin: 20px auto;
+}
+
+.drum-pad {
+  width: 15vh;
+  height: 15vh;
+  border: 2px white solid;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px black;
+}
+
+button:focus {
+  background-color: #1D2B53;
+}

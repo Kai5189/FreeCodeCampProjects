@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Machine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-md-8 offset-rd-2">
+<wrapper id="quote-box">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><div id="text"></div></h5>
+          <p class="card-text"><div id="author"></div></p>
+          <button id="new-quote" onclick="generatequote()" class="btn btn-success">new Quote</button>
+          <a href="#" id="tweet-quote" target="_blank" class="btn btn-primary">tweet</a>
+        </div>
+      </div>
+    
+
+
+
+</wrapper>
+</div>
+</div>
+</div>
+</body>
+<script>
+    const quotebank=[
+        {
+           quote:"If I don't want to be vaporized in a nuclear explosion, I simply have to become nuclear myself… I am Atomic.",
+           author:"Shadow -The Eminence of shadows"
+        },{
+            quote:"The world isnt entirely beautiful. Everyone knows this, but in their hearts they still wish for that perfect, idyllic place. A bit of a contradiction.",
+            author:"Syougo Kinugasa -Classroom of the Elite"
+        },{
+            quote:"Even the strongest of opponents always has a weakness",
+            author:"Manabu Uchiha -Classroom of the Elite"
+        },{
+            quote:"You may have planned to manipulate my heart but unfortunately for you, I don't have a heart that can be manipulated",
+            author:"Ayanokouji kiyotaka -Classroom of the Elite"
+        },{
+            quote:"As the living it is our responsibility to carry out the wishes of the ones who are gone",
+            author:"Akame -Akame Ga Kill"
+        },{
+            quote:"Everybody Makes A Wrong Turn Once In A While",
+            author:"Ash -Pokemon"
+        },{
+            quote:"Do You Always Need A Reason To Help Somebody?",
+            author:"Ash -Pokemon"
+        },{
+            quote:"You Know How Pokemon Have Different Abilities? People Are Like That Too. Everyone Has Different Potential",
+            author:"Pokemon HeartGold/SoulSilver"
+        },{
+            quote:"N's Heart Is Pure And Innocent. But There Is Nothing More Beautiful And Terrifying Than Innocence.",
+            author:"Concordia -Pokemon Black and White"
+        }
+    ];
+    window.onload=init;
+    function init() {
+generatequote();
+
+    }
+    function generatequote() {
+        let quoteSize = quotebank.length;
+        let randomIndex = Math.floor(Math.random()*quoteSize);
+        let randomQuoteData = quotebank[randomIndex];
+
+        let twitterLink = "https://twitter.com/intent/tweet?text=%20"
+       
+        let quoteInApiFormat = randomQuoteData.quote.replace(/ /g,"%20");
+        twitterLink+= quoteInApiFormat
+        
+        let authorInApiFormat = randomQuoteData.author.replace(/ /g,"%20");
+        twitterLink+= " "+authorInApiFormat
+
+        document.getElementById("tweet-quote").href=twitterLink;
+
+        document.getElementById("text").innerText=randomQuoteData.quote
+        document.getElementById("author").innerText=randomQuoteData.author
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>
