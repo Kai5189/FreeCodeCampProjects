@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Main_CSS_file -->
+<style>/* Start_Variables */
+
+    :root {
+        --main-color: #0091ae;
+        --nav-bg-color: #f1f1f1;
+        --light-color: #ffffff;
+        --attribute-color: #e83e8c;
+        --code-bg-color: #f7f7f7;
+        --incorrect-bg-color: #fdeeee;
+        --note-bg-color: #ffffcc;
+        --comment-color: #777777;
+        --font-color: #303030;
+        --main-border-radius: 5px;
+    }
+    
+    /* End_Variables */
+    /* Start_General_Styles */
+    
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        color: var(--font-color);
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        min-height: 100vh;
+        font-size: 1rem;
+        line-height: 1.6;
+        font-family: 'Open Sans', Helvetica, sans-serif;
+    }
+    header {
+        color: var(--main-color);
+    }
+    header + p {
+        text-indent: 20px;
+    }
+    
+    /* End_General_Styles */
+    /* Start_Navbar */
+    
+    #navbar {
+        background-color: var(--nav-bg-color);
+        width: 350px;
+        height: 100%;
+        border-right: 3px solid var(--main-color);
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    #navbar header {
+        padding: 40px;
+        font-weight: 700;
+        font-size: 2rem;
+        text-align: center;
+    }
+    #navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    #navbar ul li {
+        width: 100%;
+        border-top: 1px solid var(--main-color);
+    }
+    #navbar .nav-link {
+        color: var(--main-color);
+        padding: 12px 30px;
+        font-weight: 500;
+        text-align: left;
+        text-decoration: none;
+        display: block;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+        cursor: pointer;
+    }
+    #navbar .nav-link:hover {
+        background-color: var(--main-color);
+        color: var(--light-color);
+    }
+    
+    /* End_Navbar */
+    /* Start_Main_doc */
+    
+    #main-doc {
+        background-color: var(--light-color);
+        padding: 40px;
+        margin-left: 350px;
+    }
+    
+    /* Start_Main_section */
+    
+    #main-doc .main-section {
+        margin: 40px 0;
+    }
+    #main-doc .main-section header {
+        font-size: 1.625rem;
+        text-align: left;
+    }
+    #main-doc .main-section h3 {
+        margin-top: 22px;
+        font-weight: normal;
+        font-size: 1.375rem;
+    }
+    #main-doc .main-section ul {
+        list-style-type: square;
+    }
+    #main-doc .main-section li {
+        margin-top: 16px;
+    }
+    #main-doc .main-section code {
+        background-color: var(--code-bg-color);
+        padding: 20px;
+        margin: 20px 0;
+        font-size: 0.9375rem;
+        text-align: left;
+        font-family: monospace;
+        white-space: pre;
+        overflow-x: auto;
+        display: block;
+        border-radius: var(--main-border-radius);
+        -webkit-border-radius: var(--main-border-radius);
+        -moz-border-radius: var(--main-border-radius);
+        -ms-border-radius: var(--main-border-radius);
+        -o-border-radius: var(--main-border-radius);
+    }
+    #main-doc .main-section #incorrect-code {
+        background-color: var(--incorrect-bg-color);
+    }
+    #main-doc .main-section code .comment {
+        color: var(--comment-color);
+    }
+    #main-doc .main-section .tag-name {
+        color: var(--main-color);
+    }
+    #main-doc .main-section .attr-name {
+        color: var(--attribute-color);
+    }
+    #main-doc .main-section .note {
+        background-color: var(--note-bg-color);
+        padding: 20px;
+        margin-top: 24px;
+        border-radius: var(--main-border-radius);
+        -webkit-border-radius: var(--main-border-radius);
+        -moz-border-radius: var(--main-border-radius);
+        -ms-border-radius: var(--main-border-radius);
+        -o-border-radius: var(--main-border-radius);
+    }
+    #main-doc .main-section .note .character {
+        background-color: var(--code-bg-color);
+        padding: 2px;
+    }
+    #main-doc a {
+        color: var(--main-color);
+    }
+    #main-doc a:hover {
+        opacity: 0.6;
+    }
+    
+    /* End_main_section */
+    /* End_Main */
+    /* Start_Media_Query */
+    
+    @media (max-width: 850px) {
+        #navbar {
+            width: 100%;
+            max-height: 285px;
+            border-right: none;
+            border-bottom: 1px solid var(--main-color);
+            position: absolute;
+            overflow-y: auto;
+            top: 0;
+            z-index: 1;
+        }
+        #navbar header {
+            padding: 20px;
+            font-size: 1.625rem;
+        }
+        #navbar ul {
+            border: 1px solid var(--main-color);
+        }
+        #main-doc {
+            margin-left: 0;
+            margin-top: 285px;
+            padding: 20px;
+        }
+        #main-doc .main-section header {
+            font-size: 1.5rem;
+        }
+        #main-doc .main-section h3 {
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 767px) {
+        #main-doc {
+            padding: 16px;
+        }
+    }
+    /* End_Media_Query */
+    </style>
+    <title>Technical Documentation Page</title>
+    <!-- Google_Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Start_Navbar -->
+    <nav id="navbar">
+        <header>HTML Documentation</header>
+        <ul>
+            <li><a class="nav-link" href="#introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#what_is_html?">What is HTML?</a></li>
+            <li><a class="nav-link" href="#anatomy_of_an_html_element">Anatomy of an HTML element</a></li>
+            <li><a class="nav-link" href="#html_document">HTML document</a></li>
+            <li><a class="nav-link" href="#headings">Headings</a></li>
+            <li><a class="nav-link" href="#paragraphs">Paragraphs</a></li>
+            <li><a class="nav-link" href="#lists">Lists</a></li>
+            <li><a class="nav-link" href="#links">Links</a></li>
+            <li><a class="nav-link" href="#reference">Reference</a></li>
+        </ul>
+    </nav>
+    <!-- End_Navbar  -->
+    <main id="main-doc">
+        <!-- Start_Introduction_Section -->
+        <section class="main-section" id="introduction">
+            <header>Introduction</header>
+            <p>HTML (Hypertext Markup Language) is the code that is used to structure a web page and its content. 
+                For example, content could be structured within a set of paragraphs, a list of bulleted points, 
+                or using images and data tables. As the title suggests, this article will give you a basic understanding 
+                of HTML and its functions.
+            </p>
+        </section>
+        <!-- End_Introduction_Section -->
+        <!-- Start_What_is_html_section -->
+        <section class="main-section" id="what_is_html?">
+            <header>What is HTML?</header>
+            <p>HTML is a markup language that defines the structure of your content.
+                HTML consists of a series of elements, which you use to enclose, or wrap different parts of the 
+                content to make it appear a certain way. The enclosing tags can make a word or image hyperlink 
+                to somewhere else, can italicize words, can make the font bigger or smaller, and so on. For example, 
+                take the following line of content:</p>
+            <code>My cat is very grumpy</code>
+            <p>If we wanted the line to stand by itself, we could specify that it is a paragraph by enclosing it in 
+                paragraph tags:</p>
+            <code><span class="tag-name">&lt;p&gt;</span>My cat is very grumpy<span class="tag-name">&lt;/p&gt;</span></code>
+        </section>
+        <!-- End_What_is_html_section -->
+        <!-- Start_Anatomy_of_an_html_element_section -->
+        <section class="main-section" id="anatomy_of_an_html_element">
+            <header>Anatomy of an HTML element</header>
+            <p>Let's explore this paragraph element a bit further.</p>
+            <code><span class="tag-name">&lt;p&gt;</span>My cat is very grumpy<span class="tag-name">&lt;/p&gt;</span></code>
+            <p>HTML element consists of main parts are as follows:</p>
+            <ol>
+                <li><strong>The opening tag:</strong> This consists of the name of the element (in this case, p), 
+                wrapped in opening and closing <strong>angle brackets</strong>. This states where the element 
+                begins or starts to take effect, in this case where the paragraph begins.</li>
+                <li><strong>The closing tag:</strong> This is the same as the opening tag, except that it includes 
+                a forward slash before the element name. This states where the element ends, in this case 
+                where the paragraph ends. Failing to add a closing tag is one of the standard beginner errors 
+                and can lead to strange results.</li>
+                <li><strong>The content:</strong> Is the content of the element, which in our case is just text.</li>
+                <li><strong>The element:</strong> The opening tag, the closing tag, and the content together 
+                comprise the element.</li>
+            </ol>
+            <p>HTML elements can also have attributes that look like the following:</p>
+            <code><span class="tag-name">&lt;p <span class="attr-name">class="editor-note"</span>&gt;</span>My cat is very grumpy<span class="tag-name">&lt;&sol;p&gt;</span></code>
+            <p>Attributes contain extra information about the element that you don't want to appear in the actual 
+                content. Here, <strong>class</strong> is the attribute name and <strong>editor-note</strong> is the attribute value. 
+                The <strong>class</strong> attribute allows you to give the element a non-unique identifier that can be used to 
+                target it (and any other elements with the same <strong>class</strong> value) with style information and other things.</p>
+            <p>An attribute should always have the following:</p>
+            <ul>
+                <li>A space between it and the element name (or the previous attribute, if the element already has one or more attributes).</li>
+                <li>The attribute name followed by an equal sign.</li>
+                <li>The attribute value wrapped by opening and closing quotation marks.</li>
+            </ul>
+            <p class="note"><strong>Note:</strong> Simple attribute values that don't contain ASCII whitespace (or any of the characters <span class="character">"</span> <span class="character">'</span> <span class="character">`</span> <span class="character">=</span> <span class="character"><</span> <span class="character">></span>) can remain unquoted,
+                but it is recommended that you quote all attribute values, as it makes the code more consistent and understandable.</p>
+            <h3>Nesting elements</h3>
+            <p>You can put elements inside other elements too, this is called <strong>nesting</strong>. 
+            If we wanted to state that our cat is <strong>very</strong> grumpy, we could wrap the word "very" in a 
+            <span class="tag-name">&lt;strong&gt;</span> element, which means that the word is to be strongly emphasized:</p>
+            <code><span class="tag-name">&lt;p&gt;</span>My cat is <span class="tag-name">&lt;strong&gt;</span>very<span class="tag-name">&lt;/strong&gt;</span> grumpy<span class="tag-name">&lt;/p&gt;</span></code>
+            <p>You do however need to make sure your elements are properly nested. In the example above, 
+                we opened the <span class="tag-name">&lt;p&gt;</span> element first, then the <span class="tag-name">&lt;strong&gt;</span> element; 
+                therefore, we have to close the <span class="tag-name">&lt;strong&gt;</span> element first, then the 
+                <span class="tag-name">&lt;p&gt;</span> element. The following is incorrect:
+            </p>
+            <code id="incorrect-code"><span class="tag-name">&lt;p&gt;</span>My cat is <span class="tag-name">&lt;strong&gt;</span>very grumpy.<span class="tag-name">&lt;/p&gt;</span><span class="tag-name">&lt;/strong&gt;</span></code>
+            <p>The elements have to open and close correctly so that they are clearly inside or outside one another.
+                If they overlap as shown above, then your web browser will try to make the best guess at what you 
+                were trying to say, which can lead to unexpected results. So don't do it!</p>
+            <h3>Empty elements</h3>
+            <p>Some elements have no content and are called <strong>empty elements</strong>. Take the <span class="tag-name">&lt;img&gt;</span> element as an example:</p>
+            <code><span class="tag-name">&lt;img <span class="attr-name">src</span>="images/firefox-icon.png" <span class="attr-name">alt</span>="my test image"&gt;</span></code>
+            <p>This contains two attributes, but there is no closing tag and no inner content.
+                This is because an image element doesn't wrap content to affect it. Its purpose is to embed an image 
+                in the HTML page in the place it appears.</p>
+        </section>
+        <!-- End_Anatomy_of_an_html_element_section -->
+        <!-- Start_html_Document_Section -->
+        <section class="main-section" id="html_document">
+            <header>HTML document</header>
+            <p>HTML document wraps up the basics of individual HTML elements, but they aren't handy on their own, they are combined to form 
+                an entire HTML page. Here we have the following:</p>
+            <ul>
+                <li>
+                    <span class="tag-name">&lt;!DOCTYPE html&gt;</span> &mdash; doctype. It is a required preamble. In the mists of time, when HTML was young (around 1991/92), doctype were meant to act as links to a set of rules that the HTML page had to follow to be considered good HTML, which could mean automatic error checking and other useful things. However these days, they don't do much and are basically just needed to make sure your document behaves correctly.
+                </li>
+                <li>
+                    The <span class="tag-name">&lt;html&gt;</span> element. This element wraps all the content on the entire page and is sometimes known as the root element. It includes the <strong>lang</strong> attribute, setting the primary language of the document.
+                </li>
+                <li>
+                    The <span class="tag-name">&lt;head&gt;</span> element. This element acts as container for all the staff you want to include in the document 
+                    like its title, scripts and style sheets.
+                </li>
+                <li>
+                    <span class="tag-name">&lt;meta charset="utf-8"&gt;</span> &mdash; This element sets the character set your document should use to UTF-8 which includes 
+                    most characters from the vast majority of written languages.
+                </li>
+                <li>
+                    <span class="tag-name">&lt;meta name="viewport" content="width=device-width"&gt;</span> &mdash; This viewport element ensures the page renders at the width of viewport, preventing mobile browsers from rendering pages wider than the viewport and then shrinking them down.
+                </li>
+                <li>
+                    The <span class="tag-name">&lt;title&gt;</span> element. This defines the document's title that is shown in a browser's title bar or page's tab.
+                </li>
+                <li>
+                    The <span class="tag-name">&lt;body&gt;</span> element. This contains all the content that you want to show to web users when they visit 
+                    your page.
+                </li>
+            </ul>
+            <code><span class="tag-name">&lt;!DOCTYPE <span class="attr-name">html</span>&gt;</span><br><span class="tag-name">&lt;html <span class="attr-name">lang</span>="en-US"&gt;</span><br>&emsp;&emsp;<span class="tag-name">&lt;head&gt;</span><br>&emsp;&emsp;&emsp;&emsp;<span class="tag-name">&lt;meta <span class="attr-name">charset</span>="utf-8"&gt;</span><br>&emsp;&emsp;&emsp;&emsp;<span class="tag-name">&lt;meta <span class="attr-name">name</span>="viewport" <span class="attr-name">content</span>="width=device-width"&gt;</span><br>&emsp;&emsp;&emsp;&emsp;<span class="tag-name">&lt;title&gt;</span>My test page<span class="tag-name">&lt;/title&gt;</span><br>&emsp;&emsp;<span class="tag-name">&lt;/head&gt;</span><br>&emsp;&emsp;<span class="tag-name">&lt;body&gt;</span><br>&emsp;&emsp;&emsp;&emsp;<span class="tag-name">&lt;p&gt;</span>My cat is very grumpy<span class="tag-name">&lt;/p&gt;</span><br>&emsp;&emsp;<span class="tag-name">&lt;/body&gt;</span><br><span class="tag-name">&lt;/html&gt;</span></code>
+        </section>
+        <!-- End_html_Document_Section -->
+        <!-- Start_Headings_Section -->
+        <section class="main-section" id="headings">
+            <header>Headings</header>
+            <p>Heading elements allow you to specify that certain parts of your content are headings or subheadings. 
+                HTML contains 6 heading levels: <span class="tag-name">&lt;h1&gt;</span> is the highest section level and <span class="tag-name">&lt;h6&gt;</span> is the lowest, 
+                although you'll commonly only use 3 to 4 at most:
+            </p>
+            <code><span class="comment">&lt;!-- 4 heading levels: --&gt;</span><br><br><span class="tag-name">&lt;h1&gt;</span>My main title<span class="tag-name">&lt;/h1&gt;</span><br><span class="tag-name">&lt;h2&gt;</span>My top level heading<span class="tag-name">&lt;/h2&gt;</span><br><span class="tag-name">&lt;h3&gt;</span>My subheading<span class="tag-name">&lt;/h3&gt;</span><br><span class="tag-name">&lt;h4&gt;</span>My sub-subheading<span class="tag-name">&lt;/h4&gt;</span></code>
+            <p class="note"><strong>Note:</strong> Anything in HTML between <span class="character">&lt;! &ndash; &ndash;</span> and <span class="character">&ndash; &ndash; &gt;</span> is an <strong>HTML comment</strong>. The browser 
+                ignores comments as it renders the code. In other words, they are not visible on the page - just in the code. HTML comments are a way for you to write helpful notes about your code or logic.</p>
+        </section>
+        <!-- End_Headings_Section -->
+        <!-- Start_Paragraphs_Section -->
+        <section class="main-section" id="paragraphs">
+            <header>Paragraphs</header>
+            <p>As explained above, <span class="tag-name">&lt;p&gt;</span> elements are for containing paragraphs of text; you'll use these frequently 
+                when marking up regular text content:</p>
+                <code><span class="tag-name">&lt;p&gt;</span>This is a single paragraph<span class="tag-name">&lt;/p&gt;</span></code>
+        </section>
+        <!-- End_Paragraphs_Section -->
+        <!-- Start_Lists_Section -->
+        <section class="main-section" id="lists">
+            <header>Lists</header>
+            <p>Lists in HTML are used to represent an item in a list and the most common list types are ordered and unordered lists:</p>
+            <ol>
+                <li>
+                    <strong>Unordered lists</strong> are for lists where the order of the items doesn't matter and these wrapped in an <span class="tag-name">&lt;ul&gt;</span> element.
+                </li>
+                <li>
+                    <strong>Ordered lists</strong> are for lists where the order of the items does matter and these wrapped in an <span class="tag-name">&lt;ol&gt;</span> element.
+                </li>
+            </ol>
+            <p>Each item inside the lists is put inside an <span class="tag-name">&lt;li&gt;</span> element; for example, if we wanted to turn the part 
+                of the following paragraph fragment into a list</p>
+            <code><span class="tag-name">&lt;p&gt;</span>At Mozilla, we're a global community of technologists, thinkers, and builders working together…<span class="tag-name">&lt;/p&gt;</span></code>
+            <p>We could modify the markup to this:</p>
+            <code><span class="tag-name">&lt;p&gt;</span>At Mozilla, we're a global community of<span class="tag-name">&lt;/p&gt;</span><br><br><span class="tag-name">&lt;ul&gt;</span><br>&emsp;&emsp;&emsp;<span class="tag-name">&lt;li&gt;</span>technologists<span class="tag-name">&lt;/li&gt;</span><br>&emsp;&emsp;&emsp;<span class="tag-name">&lt;li&gt;</span>thinkers<span class="tag-name">&lt;/li&gt;</span><br>&emsp;&emsp;&emsp;<span class="tag-name">&lt;li&gt;</span>builders<span class="tag-name">&lt;/li&gt;</span><br><span class="tag-name">&lt;/ul&gt;</span><br><br><span class="tag-name">&lt;p&gt;</span>working together...<span class="tag-name">&lt;/p&gt;</span></code>
+        </section>
+        <!-- End_Lists_Section -->
+        <!-- Start_links_Section -->
+        <section class="main-section" id="links">
+            <header>Links</header>
+            <p>The <span class="tag-name">&lt;a&gt;</span> element (or anchor element), with its <strong>href attribute</strong> creates a hyperlink 
+                to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
+                To make text within your paragraph into a link, follow these steps:
+            </p>
+            <ol>
+                <li>Choose some text. We chose the text "Mozilla Manifesto".</li>
+                <li>Wrap the text in an <span class="tag-name">&lt;a&gt;</span> element, as shown bellow:</li>
+                <code><span class="tag-name">&lt;a&gt;</span>Mozilla Manifesto<span class="tag-name">&lt;/a&gt;</span></code>
+                <li>Give the <span class="tag-name">&lt;a&gt;</span> element an <strong>href</strong> attribute, as shown below:</li>
+                <code><span class="tag-name">&lt;a <span class="attr-name">href</span>=""&gt;</span>Mozilla Manifesto<span class="tag-name">&lt;/a&gt;</span></code>
+                <li>Fill in the value of this attribute with the web address that you want the link to:</li>
+                <code><span class="tag-name">&lt;a <span class="attr-name">href</span>="https://www.mozilla.org/en-US/about/manifesto/"&gt;</span>Mozilla Manifesto<span class="tag-name">&lt;/a&gt;</span></code>
+            </ol>
+            <p>You might get unexpected results if you omit the <strong>https://</strong> or <strong>http://</strong> 
+                part, called the protocol, at the beginning of the web address. After making a link, 
+                click it to make sure it is sending you where you wanted it to.</p>
+        </section>
+        <!-- End_links_Section -->
+        <!-- Start_reference_Section -->
+        <section class="main-section" id="reference">
+            <header>Reference</header>
+            <p>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" target="_blank">MDN</a> and 
+                it is only covering the basics of HTML, to find out more go to <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML" target="_blank">Learning HTML</a> topic.
+            </p>
+        </section>
+        <!-- End_reference_Section -->
+    </main>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCC Product Landing Page</title>
+    <!-- Main_CSS_File -->
+  <style>
+    /* Start_Variables */
+
+:root {
+    --MAIN-BG-COLOR: #a2ac3a;
+    --MAIN-COLOR: #6d8100;
+    --LIGHT-COLOR: #FFFFFF;
+    --FONT-COLOR: #212121;
+    --MAIN-BORDER: 1px solid #6d8100;
+    --MAIN-BORDER-RADIUS: 3px;
+    --SECTION-PADDING: 40px;
+    --MAIN-DURATION: 0.3s;
+}
+
+/* End_Variables */
+/* Start_General_Styles */
+
+html {
+    scroll-behavior: smooth;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    color: var(--FONT-COLOR);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Raleway', 'Segoe UI', Arial, sans-serif;
+}
+#main {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;
+}
+section {
+    padding-top: var(--SECTION-PADDING);
+    padding-bottom: var(--SECTION-PADDING);
+}
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+}
+img {
+    width: 60px;
+    max-width: 100%;
+    height: auto;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+p {
+    line-height: 1.6;
+}
+
+/* End_General_Styles */
+/* Start_Header */
+
+#header {
+    background-color: var(--LIGHT-COLOR);
+    padding: 0 16px;
+    width: 100%;
+    height: 80px;
+    border-bottom: var(--MAIN-BORDER);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 27;
+}
+#header #logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+#header #logo h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+#header #nav-bar ul {
+    display: flex;
+    align-items: center;
+}
+#header #nav-bar ul li .nav-link {
+    margin-left: 24px;
+    font-size: 1.125rem;
+}
+#header #nav-bar ul li .nav-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--MAIN-COLOR);
+    -moz-text-decoration-color: var(--MAIN-COLOR);
+}
+
+/* Start_Menu_Icon_for_Mobile_Devices */
+
+#header #nav-bar .menu-icon span {
+    background-color: #000;
+    width: 40px;
+    height: 4px;
+    margin: 6px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: block;
+}
+#header #nav-bar .menu-icon {
+    display: none;
+}
+
+/* End_Menu_Icon_for_Mobile_Devices */
+/* Start_Header_Media_Query */
+
+@media (max-width: 991px) {
+    #header {
+        justify-content: space-between;
+    }
+}
+@media (max-width: 767px) {
+    #header #nav-bar ul {
+        background-color: rgb(0, 0, 0, 0.7);
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 27;
+        display: none;
+    }
+    #header #nav-bar ul li {
+        border-bottom: var(--MAIN-BORDER);
+    }
+    #header #nav-bar .menu-icon,
+    #header #nav-bar:hover .menu-icon + ul {
+        display: block;
+        cursor: pointer;
+    }
+    #header #nav-bar ul li .nav-link {
+        color: var(--LIGHT-COLOR);
+        padding: 20px 0px;
+        text-align: left;
+    }
+    #header #nav-bar ul li .nav-link:hover,
+    #header #nav-bar ul li .nav-link:active {
+        padding-left: 12px;
+    }
+}
+
+/* End_Header_Media_Query */
+/* End_Header */
+/* Start_Hero_Section */
+
+#hero {
+    padding-top: 0;
+}
+#hero #hero-img {
+    width: 100%;
+    height: 350px;
+    background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(./images/hero-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#hero h1 {
+    margin: 60px auto 30px;
+}
+#hero form input[type="email"] {
+    padding: 10px;
+    width: 100%;
+    max-width: 350px;
+    font-size: 0.9375rem;
+    border: 1px solid #ccc;
+    outline: none;
+    font-family: inherit;
+    border-radius: var(--MAIN-BORDER-RADIUS);
+    -webkit-border-radius: var(--MAIN-BORDER-RADIUS);
+    -moz-border-radius: var(--MAIN-BORDER-RADIUS);
+    -ms-border-radius: var(--MAIN-BORDER-RADIUS);
+    -o-border-radius: var(--MAIN-BORDER-RADIUS);
+}
+#hero form input[type="email"]:focus {
+    border-color: var(--MAIN-COLOR);
+}
+#hero form input[type="submit"] {
+    background-color: var(--MAIN-BG-COLOR);
+    color: var(--FONT-COLOR);
+    padding: 8px 12px;
+    margin: 30px auto 0;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: block;
+    border: none;
+    border-radius: var(--MAIN-BORDER-RADIUS);
+    -webkit-border-radius: var(--MAIN-BORDER-RADIUS);
+    -moz-border-radius: var(--MAIN-BORDER-RADIUS);
+    -ms-border-radius: var(--MAIN-BORDER-RADIUS);
+    -o-border-radius: var(--MAIN-BORDER-RADIUS);
+    transition: var(--MAIN-DURATION);
+    -webkit-transition: var(--MAIN-DURATION);
+    -moz-transition: var(--MAIN-DURATION);
+    -ms-transition: var(--MAIN-DURATION);
+    -o-transition: var(--MAIN-DURATION);
+}
+#hero form input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+/* End_hero_Section */
+/* Start_Features_Section */
+
+#features .feat {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+#features .feat .icon-wrapper {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#features .feat .description {
+    width: 80%;
+    text-align: left;
+}
+
+/* Start_Features_Section_Media_Query */
+
+@media (max-width: 767px) {
+    #features .feat {
+        flex-direction: column;
+    }
+    #features .feat .description {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+    }
+}
+
+/* End_Features_Media_Query */
+/* End_Features_Section */
+/* Start_How_It_Works_Section */
+
+#how-it-works .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#how-it-works #video {
+    width: 100%;
+    max-width: 550px;
+    height: 320px;
+}
+
+/* End_How_It_Works_Section */
+/* Start_Pricing_Section */
+
+#pricing .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#pricing .container .column {
+    width: calc(100% / 3 - 10px);
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: var(--MAIN-BORDER-RADIUS);
+    -webkit-border-radius: var(--MAIN-BORDER-RADIUS);
+    -moz-border-radius: var(--MAIN-BORDER-RADIUS);
+    -ms-border-radius: var(--MAIN-BORDER-RADIUS);
+    -o-border-radius: var(--MAIN-BORDER-RADIUS);
+    transition: var(--MAIN-DURATION);
+    -webkit-transition: var(--MAIN-DURATION);
+    -moz-transition: var(--MAIN-DURATION);
+    -ms-transition: var(--MAIN-DURATION);
+    -o-transition: var(--MAIN-DURATION);
+}
+#pricing .container .column:hover {
+    border-color: var(--MAIN-COLOR);
+}
+@media (max-width: 800px) {
+    #pricing .container {
+        flex-direction: column;
+    }
+    #pricing .container .column {
+        width: 100%;
+        max-width: 350px;
+        margin: 10px auto;
+    }
+}
+#pricing .column ul li {
+    width: 100%;
+    padding: 16px 0;
+}
+#pricing .column .collection {
+    border-bottom: var(--MAIN-BORDER);
+}
+#pricing .column .collection,
+#pricing .column .price {
+    padding: 20px 0;
+    font-weight: 700;
+    font-size: 1.375rem;
+}
+#pricing .column .row {
+    position: relative;
+}
+#pricing .column .row::after {
+    content: "";
+    background-color: var(--MAIN-COLOR);
+    width: 150px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+#pricing .column a {
+    background-color: var(--MAIN-BG-COLOR);
+    padding: 12px 18px;
+    margin: 20px auto;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: var(--MAIN-BORDER-RADIUS);
+    -webkit-border-radius: var(--MAIN-BORDER-RADIUS);
+    -moz-border-radius: var(--MAIN-BORDER-RADIUS);
+    -ms-border-radius: var(--MAIN-BORDER-RADIUS);
+    -o-border-radius: var(--MAIN-BORDER-RADIUS);
+    transition: var(--MAIN-DURATION);
+    -webkit-transition: var(--MAIN-DURATION);
+    -moz-transition: var(--MAIN-DURATION);
+    -ms-transition: var(--MAIN-DURATION);
+    -o-transition: var(--MAIN-DURATION);
+}
+#pricing .column a:hover {
+    opacity: 0.9;
+}
+
+/* End_Pricing_Section */
+/* Start_Footer */
+
+#footer {
+    background-color: var(--MAIN-BG-COLOR);
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 500;
+}
+#footer ul {
+    display: flex;
+    align-items: center;
+}
+#footer ul li {
+    margin: 8px;
+}
+#footer a:hover {
+    text-decoration: underline;
+}
+#footer span {
+    font-weight: 700;
+}
+@media (max-width: 991px) {
+    #footer {
+        justify-content: space-between;
+    }
+}
+@media (max-width: 767px) {
+    #footer {
+        flex-direction: column;
+    }
+}
+/* End_Footer */
+  </style>
+    <!-- Google_Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Start_Header -->
+    <header id="header">
+        <div id="logo">
+            <a href="#"><img id="header-img" src="./images/logo.png" alt="logo image"></a>
+            <h3>Authentic Tea</h3>
+        </div>
+        <!-- Start_Nav_bar -->
+        <nav id="nav-bar">
+            <!-- Start_Menu_Icon_for_Mobile_Devices -->
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- End_Menu_Icon_for_Mobile_Devices -->
+            <!-- Start_Nav_Links -->
+            <ul>
+                <li><a class="nav-link" href="#features">Features</a></li>
+                <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                <li><a class="nav-link" href="#pricing">Pricing</a></li>
+            </ul>
+            <!-- End_Nav_Links -->
+        </nav>
+        <!-- End_Nav_Bar -->
+    </header>
+    <!-- End_Header -->
+    <!-- Start_Main -->
+    <main id="main">
+        <!-- Start_Hero_Section -->
+        <section id="hero">
+            <div id="hero-img"></div>
+            <div class="container">
+                <h1>Experience the organic tea</h1>
+                <form id="form" action="https://www.freecodecamp.com/email-submit">
+                    <input id="email" type="email" placeholder="Enter your email address" name="email" required>
+                    <input id="submit" class="btn" type="submit" value="Get Started">
+                </form>
+            </div>
+        </section>
+        <!-- End_Hero_Section -->
+        <!-- Start_Features_Section -->
+        <section id="features">
+            <div class="container">
+                <div class="feat">
+                    <div class="icon-wrapper">
+                        <img src="./images/feat-1.png" alt="feat-icon">
+                    </div>
+                    <div class="description">
+                        <h3>Organically Grown</h3>
+                        <p>Our tea is planted in certified organic crops and grown with no chemical fertilizers or preservatives.</p>
+                    </div>
+                </div>
+                <div class="feat">
+                    <div class="icon-wrapper">
+                        <img src="./images/feat-2.png" alt="feat-icon">
+                    </div>
+                    <div class="description">
+                        <h3>Curated with Care</h3>
+                        <p>Every leaf is carefully hand selected, well processed and expertly packed to save it fresh and aromatic.</p>
+                    </div>
+                </div>
+                <div class="feat">
+                    <div class="icon-wrapper">
+                        <img src="./images/feat-3.png" alt="feat-icon">
+                    </div>
+                    <div class="description">
+                        <h3>Fast Shipping</h3>
+                        <p>For every order you make, we aim to deliver it within 24hrs, and we also provide free shipping on orders over $50.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End_Features_Section -->
+        <!-- Start_How_It_Works_Section -->
+        <section id="how-it-works">
+            <div class="container">
+                <iframe id="video" src="https://www.youtube.com/embed/1HGk49Ylz1k" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+        <!-- End_How_It_Works_Section -->
+        <!-- Start_Pricing_Section -->
+        <section id="pricing">
+            <div class="container">
+                <div class="column">
+                    <ul>
+                        <li class="collection">Basic</li>
+                        <li class="row">White tea</li>
+                        <li class="row">Green tea</li>
+                        <li class="row">Black tea</li>
+                        <li class="price">$ 15</li>
+                    </ul>
+                    <a href="#">order</a>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li class="collection">Flavored</li>
+                        <li class="row">Fruity flavor</li>
+                        <li class="row">Floral flavor</li>
+                        <li class="row">Spicy flavor</li>
+                        <li class="price">$ 30</li>
+                    </ul>
+                    <a href="#">order</a>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li class="collection">Herbal</li>
+                        <li class="row">Vervain blend</li>
+                        <li class="row">Mint blend</li>
+                        <li class="row">Chamomile blend</li>
+                        <li class="price">$ 60</li>
+                    </ul>
+                    <a href="#">order</a>
+                </div>
+            </div>
+        </section>
+        <!-- End_Pricing_Section -->     
+    </main>
+    <!-- End_Main -->
+    <!-- Start_Footer -->
+    <div id="footer">
+        <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <p>&copy; Copyright 2023 <span>Authentic Tea</span></p>
+    </div>
+    <!-- End_Footer -->
+</body>
+</html>

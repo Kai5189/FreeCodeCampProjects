@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCC Personal Portfolio Webpage</title>
+    <!-- Main_CSS_File -->
+    <style>
+     /* Start_Variables */
+
+:root {
+    --main-color: #273052;
+    --secondary-color: #0dcaf0;
+    --light-color: #FFFFFF;
+    --secondary-light-color: #f0f8ff;
+    --section-padding: 5rem;
+    --main-duration: 0.3s;
+}
+
+/* End_Variables */
+/* Start_General_styles */
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+}
+section {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 auto;
+}
+
+/* Container_in_Small_Device */
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Container_in_Medium_Device */
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Container_in_Large_Device */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+h2,
+h3 {
+    line-height: 1.2;
+}
+p {
+    line-height: 1.5;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: var(--main-duration);
+    -webkit-transition: var(--main-duration);
+    -moz-transition: var(--main-duration);
+    -ms-transition: var(--main-duration);
+    -o-transition: var(--main-duration);
+}
+/* End_General_styles */
+/* Start_Navbar */
+
+#navbar {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 78;
+}
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#navbar ul li a {
+    padding: 1.25rem  0.75rem;
+    font-size: 1.125rem;
+}
+#navbar ul li a.active,
+#navbar ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Start_Navbar_Media_Query */
+
+@media (max-width: 767px) {
+    #navbar {
+        justify-content: center;
+    }
+}
+
+/* End_Navbar_Media_Query */
+/* End_Navbar */
+/* Start_Welcome_section */
+
+#welcome-section {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgb(39, 48, 83, 0.4), rgb(39, 48, 83, 0.4)), url(./images/welcome-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 80%;
+}
+#title,
+#description {
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+#welcome-section #title {
+    color: var(--light-color);
+    margin-bottom: 0;
+    font-size: 4rem;
+}
+#welcome-section #description {
+    color: var(--secondary-color);
+    font-style: italic;
+    font-size: 2rem;
+}
+
+/* Start_Welcome_section_Media_query */
+
+@media (max-width: 991px) {
+    #welcome-section #title {
+        font-size: 3rem;
+    }
+}
+@media (max-width: 767px) {
+    #welcome-section {
+        background-position: center;
+    }
+    #welcome-section #title {
+        font-size: 2rem;
+    }
+    #welcome-section #title span {
+        display: none !important;
+    }
+    #welcome-section #description {
+        font-size: 1.5rem;
+    }
+}
+
+/* End_Welcome_section_Media_query */
+/* End_Welcome_section */
+/* Start_Projects_section */
+
+#projects {
+    background-color: var(--secondary-light-color);
+    color: var(--main-color);
+}
+#projects h2 {
+    font-size: 2rem;
+    position: relative;
+}
+@media (max-width: 767px) {
+    #projects h2 {
+        font-size: 1.5rem;
+    }
+}
+#projects h2::after {
+    content: "";
+    background-color: var(--secondary-color);
+    width: 150px;
+    height: 3px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+#projects #my-projects {
+    margin: 5rem auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+#projects #my-projects .project-title {
+    background-color: var(--light-color);
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+}
+#projects .project-title img {
+    max-width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+#projects .project-title h3 {
+    margin: 0;
+    padding: 1rem;
+    width: 100%;
+    border-top: 1px solid var(--main-color);
+}
+#projects .project-title a:hover {
+    text-decoration: underline;
+}
+#projects .btn {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1rem 1.125rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+#projects .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* End_Projects_section */
+/* Start_Contact_section */
+
+#contact-section {
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+#contact-section h2 {
+    font-size: 3.25rem;
+    margin-bottom:  1.5rem;
+}
+#contact-section p {
+    font-style: italic;
+    font-weight: 500;
+    font-size:  1.25rem;
+}
+#contact-section #contact-links {
+    margin-top: 3.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.875rem;
+}
+#contact-section #contact-links a {
+    font-size: 1.5rem;
+    display: inline-block;
+    position: relative;
+}
+
+/* Start_links_Styling */
+
+#contact-section #contact-links a::before {
+    content: attr(data-text);
+    color: var(--secondary-color);
+    width: 0%;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    border-bottom: 3px solid var(--secondary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    overflow: hidden;
+    transition: var(--main-duration);
+    -webkit-transition: var(--main-duration);
+    -moz-transition: var(--main-duration);
+    -ms-transition: var(--main-duration);
+    -o-transition: var(--main-duration);
+}
+#contact-section #contact-links a:hover::before {
+    width: 100%;
+}
+
+/* End_links_Styling */
+/* Start_Contact_section_Media_query */
+
+@media (max-width: 991px) {
+    #contact-section h2 {
+        font-size: 2rem;
+    }
+    #contact-section #contact-links a,
+    #contact-section #contact-links a::before {
+        font-size: 1.125rem;
+    }
+}
+@media (max-width: 767px) {
+    #contact-section h2 {
+        font-size: 1.5rem;
+    }
+    #contact-section p {
+        font-size: 1.125rem;
+    }
+}
+
+/* End_Contact_section_Media_query */
+/* End_Contact_section */
+/* Start_Footer */
+
+footer {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid var(--secondary-color);
+}
+footer p span {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* End_Footer */   
+    </style>
+    <!-- Google_Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Start_Navbar -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#welcome-section">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
+    </nav>
+<!-- End_Navbar -->
+<!-- Start_Welcome_section -->
+    <section id="welcome-section">
+        <div class="container">
+            <h1 id="title"><span>I'm</span> Kai  Mayers</h1>
+            <p id="description">a web developer</p>
+        </div>
+    </section>
+<!-- End_Welcome_section -->
+<!-- Start_Projects_section -->
+    <section id="projects">
+        <div class="container">
+            <h2>These are some of my web developed projects</h2>
+            <div id="my-projects">
+                <div class="project-title">
+                    <element class="project-title"></element>
+                    <a href="https://github.com/Kai518999/Portfolio/blob/main/FreeCodeCamp/Web%20Design%20Part/SurveyForm.html" target="_blank">
+                        <img src="images/project-1.png" alt="Survey form project">
+                        <h3>Survey Form</h3>
+                    </a>
+                </div>
+                <div class="project-title">
+                    <a href="https://github.com/Kai518999/Portfolio/blob/main/FreeCodeCamp/Web%20Design%20Part/TributePage.html" target="_blank">
+                        <img src="images/project-2.png" alt="Tribute page project">
+                        <h3>Tribute Page</h3>
+                    </a>
+                </div>
+                <div class="project-title">
+                    <a href="https://github.com/Kai518999/Portfolio/blob/main/FreeCodeCamp/Web%20Design%20Part/TechnicDocPage.html" target="_blank">
+                        <img src="images/project-3.png" alt="Technical page project">
+                        <h3>Technical Page</h3>
+                    </a>
+                </div>
+                <div class="project-title">
+                    <a href="https://github.com/Kai518999/Portfolio/blob/main/FreeCodeCamp/Web%20Design%20Part/ProductPage.html" target="_blank">
+                        <img src="images/project-4.png" alt="Landing page project">
+                        <h3>Product Landing Page</h3>
+                    </a>
+                </div>
+                </div>
+            </div>
+            <a class="btn" href="#">Show all</a>
+        </div>
+    </section>
+<!-- End_Projects_section -->
+<!-- Start_Contact_section -->
+    <section id="contact-section">
+        <div class="container">
+            <h2>Let's work together</h2>
+            <p>You can find me on</p>
+            <div id="contact-links">
+                <a id="profile-link" data-text="GitHub" href="https://github.com/Kai5189" target="_blank">GitHub</a>
+                <a data-text="Linkedin" href="https://www.linkedin.com/in/kai-mayers/" target="_blank">Linkedin</a>
+                <a data-text="freeCodeCamp" href="https://www.freecodecamp.org/Kai5189" target="_blank">freeCodeCamp</a>
+            </div>
+        </div>
+    </section>
+<!-- End_Contact_section -->
+<!-- Start_Footer -->
+    <footer>
+        <p>&copy; Copyright 2024 <span>Kai Mayers</span> Personal Portfolio Webpage</p>
+    </footer>
+<!-- End_Footer -->
+</body>
+</html>
